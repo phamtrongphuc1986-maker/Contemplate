@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contemplate — Trợ lý AI</title>
+<meta name="description" content="Contemplate — trợ lý AI tiếng Việt: trò chuyện, hỏi đáp, viết lách, lên ý tưởng.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
+</head>
+<body>
+
+<!-- ============ MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ ============ -->
+<section id="authView" class="auth-wrap" hidden>
+  <div class="auth-card">
+    <div class="logo">🌀</div>
+    <h1>Contemplate</h1>
+    <p class="tagline">Trợ lý AI tiếng Việt — hỏi đáp, viết lách, lên ý tưởng.</p>
+
+    <div class="tabs" role="tablist">
+      <button id="tabLogin" class="tab active" type="button">Đăng nhập</button>
+      <button id="tabRegister" class="tab" type="button">Đăng ký</button>
+    </div>
+
+    <form id="authForm" autocomplete="on">
+      <label>Số điện thoại hoặc email
+        <input id="identifier" type="text" inputmode="email" placeholder="vd: 0912345678 hoặc ban@email.com" required>
+      </label>
+      <label>Mật khẩu
+        <input id="password" type="password" placeholder="Ít nhất 6 ký tự" required>
+      </label>
+      <p id="authError" class="error" hidden></p>
+      <button id="authSubmit" class="primary" type="submit">Đăng nhập</button>
+    </form>
+    <p class="hint">Đăng ký miễn phí. Mỗi tài khoản có hạn mức tin nhắn mỗi ngày để hệ thống phục vụ được nhiều người.</p>
+  </div>
+</section>
+
+<!-- ============ MÀN HÌNH CHAT ============ -->
+<section id="appView" class="app" hidden>
+  <aside id="sidebar" class="sidebar">
+    <div class="side-head">
+      <span class="brand">🌀 Contemplate</span>
+      <button id="closeSidebar" class="icon-btn only-mobile" type="button" aria-label="Đóng">✕</button>
+    </div>
+    <button id="newChatBtn" class="primary block" type="button">＋ Cuộc trò chuyện mới</button>
+    <div id="convList" class="conv-list"></div>
+    <div class="side-foot">
+      <div id="userInfo" class="user-info"></div>
+      <div id="quotaInfo" class="quota"></div>
+      <button id="logoutBtn" class="ghost block" type="button">Đăng xuất</button>
+    </div>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <main class="chat">
+    <header class="chat-head">
+      <button id="openSidebar" class="icon-btn only-mobile" type="button" aria-label="Mở danh sách">☰</button>
+      <div class="chat-title">Contemplate</div>
+      <button id="themeBtn" class="icon-btn" type="button" aria-label="Đổi giao diện sáng/tối">🌙</button>
+    </header>
+
+    <div id="messages" class="messages">
+      <div id="welcome" class="welcome">
+        <div class="logo">🌀</div>
+        <h2>Xin chào! Mình là Contemplate.</h2>
+        <p>Hãy hỏi bất cứ điều gì — tra cứu, viết lách, tính toán, lên ý tưởng…</p>
+        <div class="chips">
+          <button class="chip" type="button">Viết giúp tôi một đoạn giới thiệu sản phẩm</button>
+          <button class="chip" type="button">Giải thích đơn giản: lỗ đen là gì?</button>
+          <button class="chip" type="button">Lên thực đơn 3 ngày ăn lành mạnh</button>
+          <button class="chip" type="button">Dịch sang tiếng Anh: "Cảm ơn bạn rất nhiều"</button>
+        </div>
+      </div>
+    </div>
+
+    <form id="composer" class="composer">
+      <textarea id="input" rows="1" placeholder="Nhắn tin cho Contemplate…" enterkeyhint="send"></textarea>
+      <button id="sendBtn" class="send-btn" type="submit" aria-label="Gửi">➤</button>
+    </form>
+    <p class="foot-note">Contemplate có thể mắc lỗi. Hãy kiểm chứng lại thông tin quan trọng.</p>
+  </main>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
